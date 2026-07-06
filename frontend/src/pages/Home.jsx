@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import { useAuth } from '../context/auth.js'
 
 function Home() {
+  const { user } = useAuth()
   return (
     <main className="font-sans">
       {/* Hero Section */}
@@ -18,7 +20,14 @@ function Home() {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
               to="/volunteer/dashboard"
-              className="rounded-full bg-emerald-600 px-8 py-4 font-bold text-white shadow-lg shadow-emerald-900/50 transition-all hover:-translate-y-1 hover:bg-emerald-500 hover:shadow-emerald-900/80"
+              onClick={(e) => {
+                if (user?.role === 'Admin') e.preventDefault()
+              }}
+              className={`rounded-full px-8 py-4 font-bold text-white shadow-lg transition-all ${
+                user?.role === 'Admin'
+                  ? 'bg-emerald-800 cursor-not-allowed opacity-80'
+                  : 'bg-emerald-600 shadow-emerald-900/50 hover:-translate-y-1 hover:bg-emerald-500 hover:shadow-emerald-900/80'
+              }`}
             >
               Become a Volunteer
             </Link>

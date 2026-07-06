@@ -4,6 +4,10 @@ This is a **Full-Stack MERN Application** built as a submission for an internshi
 
 ## 🔗 Demo
 
+**Admin Login Credentials:**
+- **Email:** `admin@gmail.com`
+- **Password:** `admin123`
+
 - **Live URL**: https://naye-pankh-foundation-website-demo.vercel.app
 
 ## 📸 Screenshots

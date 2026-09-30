@@ -89,7 +89,7 @@ function AdminDashboard() {
           <div className="mb-6 flex flex-col justify-between gap-3 md:flex-row md:items-center">
             <div>
               <p className="text-sm font-bold uppercase tracking-wide text-emerald-400">
-                NayePankh control center
+                Administration control center
               </p>
               <h2 className="mt-1 text-4xl font-bold text-white">{activeTab}</h2>
             </div>

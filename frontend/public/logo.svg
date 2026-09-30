@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <!-- Wing Top Gradient: Mint to Emerald -->
+    <linearGradient id="wingTopL" x1="64" y1="114" x2="8" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0d9488" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <linearGradient id="wingTopR" x1="64" y1="114" x2="120" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0d9488" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+
+    <!-- Wing Mid Gradient: Teal to Turquoise -->
+    <linearGradient id="wingMidL" x1="64" y1="114" x2="12" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0891b2" />
+      <stop offset="100%" stop-color="#2dd4bf" />
+    </linearGradient>
+    <linearGradient id="wingMidR" x1="64" y1="114" x2="116" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0891b2" />
+      <stop offset="100%" stop-color="#2dd4bf" />
+    </linearGradient>
+
+    <!-- Wing Bot Gradient: Deep Cyan to Sky -->
+    <linearGradient id="wingBotL" x1="64" y1="114" x2="20" y2="68" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+    <linearGradient id="wingBotR" x1="64" y1="114" x2="108" y2="68" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+
+    <!-- Center Diamond Gradient -->
+    <linearGradient id="coreGrad" x1="64" y1="68" x2="64" y2="114" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d1fae5" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Wing -->
+  <!-- Top Feather -->
+  <path d="M 64 114 C 52 70 32 24 8 10 C 16 26 28 48 40 66 C 50 88 58 104 64 114 Z" fill="url(#wingTopL)" />
+  <!-- Middle Feather -->
+  <path d="M 64 114 C 48 84 32 54 12 38 C 22 52 34 70 44 84 C 52 98 58 106 64 114 Z" fill="url(#wingMidL)" />
+  <!-- Lower Feather -->
+  <path d="M 64 114 C 46 96 34 78 20 68 C 28 80 38 92 46 100 C 54 106 60 110 64 114 Z" fill="url(#wingBotL)" />
+
+  <!-- Right Wing -->
+  <!-- Top Feather -->
+  <path d="M 64 114 C 76 70 96 24 120 10 C 112 26 100 48 88 66 C 78 88 70 104 64 114 Z" fill="url(#wingTopR)" />
+  <!-- Middle Feather -->
+  <path d="M 64 114 C 80 84 96 54 116 38 C 106 52 94 70 84 84 C 76 98 70 106 64 114 Z" fill="url(#wingMidR)" />
+  <!-- Lower Feather -->
+  <path d="M 64 114 C 82 96 94 78 108 68 C 100 80 90 92 82 100 C 74 106 68 110 64 114 Z" fill="url(#wingBotR)" />
+
+  <!-- Center Diamond Crest -->
+  <polygon points="64,68 72,88 64,114 56,88" fill="url(#coreGrad)" />
+</svg>

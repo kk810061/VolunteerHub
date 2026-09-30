@@ -1,56 +1,60 @@
-# NayePankh Frontend
+# VolunteerHub Frontend 🤝
 
-Simple React frontend for the NayePankh volunteer platform.
+Responsive, accessible, modern React client for the **VolunteerHub** volunteer registration and program management portal.
 
-## Stack
+## 🛠️ Tech Stack
 
-- Vite
-- React
-- React Router
-- Axios
-- Tailwind CSS
+- **Framework**: React 19 + Vite
+- **Routing**: React Router DOM v7
+- **Styling**: Tailwind CSS v4
+- **Charts & Data Visualization**: Chart.js + react-chartjs-2
+- **Networking**: Axios
 
-## Run Locally
+## 🚀 Getting Started Locally
 
-Start the backend first on port `5000`, then run:
+Ensure the backend server is running on `http://localhost:5000` (or configure via environment variables).
 
 ```bash
+# Navigate to the frontend directory
+cd frontend
+
+# Install dependencies
 npm install
+
+# Launch the Vite development server
 npm run dev
 ```
 
-Open:
+Visit [http://localhost:5173](http://localhost:5173) in your browser.
 
-```text
-http://127.0.0.1:5173
+## 🌐 Environment Variables
+
+When deploying the frontend to platforms like Vercel, Netlify, or Cloudflare Pages, configure:
+
+```env
+VITE_API_URL=https://your-backend-api-domain.com/api
 ```
 
-During local development, Vite proxies `/api` requests to:
+*(If omitted in development, requests default to `http://localhost:5000/api`)*
 
-```text
-http://localhost:5000
-```
+## 📄 Key Pages & Routes
 
-## API URL For Deployment
+- `/` — Homepage with mission overview, program categories, and impact statistics
+- `/programs` — Paginated directory of active volunteering initiatives with one-click application
+- `/register` — Account registration for volunteers
+- `/login` — Secure authentication for volunteers and administrators
+- `/volunteer/dashboard` — Profile completion (skills, availability, city, phone) and personal application tracker
+- `/admin/dashboard` — Administrative analytics dashboard, volunteer approval/rejection queue, program CRUD management, and application review
 
-When deploying the frontend, set this environment variable to your deployed backend URL:
-
-```text
-VITE_API_URL=https://your-render-backend-url.com/api
-```
-
-## Pages
-
-- `/` - Home
-- `/programs` - Program list and apply button
-- `/login` - Login
-- `/register` - Register
-- `/volunteer/dashboard` - Volunteer profile and applications
-- `/admin/dashboard` - Admin stats, volunteers, programs, applications
-
-## Useful Commands
+## 📦 Build & Quality Checks
 
 ```bash
+# Lint code
 npm run lint
+
+# Production build
 npm run build
+
+# Preview production build locally
+npm run preview
 ```

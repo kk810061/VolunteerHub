@@ -18,9 +18,11 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link to="/" className="flex items-center gap-3">
-          <img src="/logo.png" alt="NayePankh Logo" className="h-10 w-10 rounded-md bg-white p-0.5 object-contain" />
-          <span className="text-xl font-extrabold tracking-wide text-white">NayePankh</span>
+        <Link to="/" className="flex items-center gap-3 group">
+          <img src="/logo.png" alt="VolunteerHub Logo" className="h-10 w-10 rounded-xl object-contain transition-transform group-hover:scale-105" />
+          <span className="text-xl font-extrabold tracking-wide text-white">
+            Volunteer<span className="text-emerald-400">Hub</span>
+          </span>
         </Link>
 
         <div className="flex flex-wrap items-center justify-end gap-2">

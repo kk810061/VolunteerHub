@@ -31,8 +31,8 @@ function Register() {
   return (
     <main className="relative z-10 mx-auto max-w-md px-4 pt-32 pb-10">
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-white">Join NayePankh</h1>
-        <p className="mt-2 text-stone-400">Create an account to apply for programs.</p>
+        <h1 className="text-4xl font-bold text-white">Join VolunteerHub</h1>
+        <p className="mt-2 text-stone-400">Create your account to start volunteering and exploring programs.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md">

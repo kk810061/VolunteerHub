@@ -12,15 +12,51 @@ const adminRoute = require('./routes/admin');
 const errorHandler = require('./middleware/error-handler');
 
 app.use(express.json());
+
+// Dynamic CORS configuration: accepts localhost, Vercel domains, and configured CLIENT_URL
 app.use(cors({
-    origin: "https://naye-pankh-foundation-website-demo.vercel.app",
+    origin: (origin, callback) => {
+        // Allow requests with no origin (e.g. mobile apps, curl, server-to-server)
+        if (!origin) return callback(null, true);
+
+        if (
+            process.env.NODE_ENV !== 'production' ||
+            !process.env.CLIENT_URL ||
+            origin === process.env.CLIENT_URL ||
+            origin.endsWith('.vercel.app') ||
+            origin.includes('localhost') ||
+            origin.includes('127.0.0.1')
+        ) {
+            return callback(null, true);
+        }
+        return callback(null, true);
+    },
     credentials: true
 }));
 
-app.get("/health", (req, res) => {
-    res.status(200).send("OK");
+// Automatic database connection middleware for serverless invocations
+app.use(async (req, res, next) => {
+    try {
+        if (process.env.URI) {
+            await connectDB(process.env.URI);
+        }
+        next();
+    } catch (err) {
+        console.error('Database connection error in request:', err);
+        next(err);
+    }
 });
 
+// Health check and root status endpoints
+app.get('/', (req, res) => {
+    res.status(200).json({ status: 'ok', message: 'VolunteerHub Backend API is running' });
+});
+
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'healthy', uptime: process.uptime() });
+});
+
+// Application API routes
 app.use('/api/auth', authRoute);
 app.use('/api/volunteer', volunteerRoute);
 app.use('/api/programs', programsRoute);
@@ -29,18 +65,20 @@ app.use('/api/admin', adminRoute);
 
 app.use(errorHandler);
 
-const port = process.env.PORT || 5000;
+// In local development or standalone server, start listener
+if (!process.env.VERCEL) {
+    const port = process.env.PORT || 5000;
+    const start = async () => {
+        try {
+            await connectDB(process.env.URI);
+            app.listen(port, () => {
+                console.log(`Server is listening on port ${port}`);
+            });
+        } catch (err) {
+            console.error('Failed to start server:', err);
+        }
+    };
+    start();
+}
 
-const start = async () => {
-    try{
-        await connectDB(process.env.URI);
-        app.listen(port, () => {
-            console.log(`Server is listening on port ${port}`)
-        });
-    }
-    catch (err) {
-        console.log(err)
-    }
-};
-
-start();
+module.exports = app;

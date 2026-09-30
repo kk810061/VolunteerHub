@@ -1,7 +1,7 @@
 {
-  "name": "nayepankh",
+  "name": "volunteer-management-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend API for Volunteer Management and Registration Platform",
   "license": "ISC",
   "author": "",
   "type": "commonjs",

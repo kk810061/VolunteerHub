@@ -2,6 +2,8 @@
 
 A full-stack **MERN** (MongoDB, Express.js, React, Node.js) web application designed to streamline community volunteering initiatives, volunteer onboarding, and charity program operations.
 
+Live URL :- https://volunteer-hub-woad.vercel.app
+
 ---
 
 ## 🌟 Highlights & Architecture
@@ -119,49 +121,6 @@ Frontend will be accessible at `http://localhost:5173`.
 | `PATCH`| `/api/admin/volunteer/:id` | Approve/Reject volunteer profile | Admin |
 | `POST` | `/api/admin/programs` | Create new volunteering program | Admin |
 | `GET` | `/api/admin/applications` | Review & update volunteer applications | Admin |
-
----
-
-## 🚀 Deploying to Vercel
-
-You can deploy VolunteerHub to Vercel in either of two ways:
-
-### Option 1: Two Separate Vercel Projects (Recommended)
-
-#### Step A: Deploy the Backend API
-1. Go to [Vercel Dashboard](https://vercel.com/dashboard) and click **"Add New Project"**.
-2. Select your repository and configure:
-   - **Root Directory**: Select `backend`
-   - **Framework Preset**: Other
-3. In **Environment Variables**, add:
-   - `URI`: Your MongoDB Atlas connection string
-   - `JWT_SECRET`: A secure random secret string
-   - `JWT_LIFETIME`: `7d`
-   - `CLIENT_URL`: Your frontend Vercel URL (can be updated after frontend is deployed)
-4. Click **Deploy**. Note down your deployed Backend URL (e.g., `https://volunteer-backend.vercel.app`).
-
-#### Step B: Deploy the Frontend
-1. In Vercel, click **"Add New Project"** and select the same repository again.
-2. Configure:
-   - **Root Directory**: Select `frontend`
-   - **Framework Preset**: Vite
-3. In **Environment Variables**, add:
-   - `VITE_API_URL`: `https://volunteer-backend.vercel.app/api` (using your backend URL from Step A)
-4. Click **Deploy**.
-
----
-
-### Option 2: Single Unified Monorepo (All-in-One Deployment)
-
-Deploy both the frontend and backend under a single Vercel domain with zero CORS setup:
-1. In Vercel, click **"Add New Project"** and import the repository.
-2. Keep **Root Directory** as the root (`.`).
-3. Add the following **Environment Variables**:
-   - `URI`: Your MongoDB connection string
-   - `JWT_SECRET`: Your JWT secret
-   - `JWT_LIFETIME`: `7d`
-4. Click **Deploy**.
-   - Vercel automatically builds the frontend from `frontend/` and routes `/api/*` requests to the Express serverless function (`api/index.js`).
 
 ---
 
